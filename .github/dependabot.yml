@@ -11,6 +11,14 @@ updates:
       all-dependencies:
         patterns:
           - "*"
+    ignore:
+      # TypeScript 7 and Node 26 types expose incompatible Worker and Node URL surfaces
+      - dependency-name: "typescript"
+        update-types:
+          - "version-update:semver-major"
+      - dependency-name: "@types/node"
+        update-types:
+          - "version-update:semver-major"
     commit-message:
       prefix: "chore"
       include: "scope"
